@@ -1,0 +1,3 @@
+'''
+    PRIM'S ALGORITHM
+'''
