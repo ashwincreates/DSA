@@ -1,5 +1,5 @@
 '''
-    BELLMAN'S ALGORITHM 
+    BELLMAN'S ALGORITHM
 
     Algorithm for finding shortest path in a undirected/directed graph with
     negative cycle. Negative is a cycle whose net weight is negative.
@@ -8,7 +8,7 @@
 
         0 ----------- 1 ----4 ---- 5
         |             |    /
-        |             |   / 
+        |             |   /
         |             |  /
         |             | /
         2 ----------- 3
@@ -16,11 +16,13 @@
 
 INF = int(1e9)
 
+
 class Edge:
     def __init__(self, a, b, weight):
-        self.a = a 
-        self.b = b 
+        self.a = a
+        self.b = b
         self.weight = weight
+
 
 adj = [[1, 2], [0, 3, 4], [0, 3], [1, 2, 4], [1, 3, 5], [4]]
 edges = []

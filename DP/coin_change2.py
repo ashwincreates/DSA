@@ -1,10 +1,11 @@
 '''
     COIN CHANGE II
 '''
-# import pandas as pd
+
+
 import sys
-import os
 input = sys.stdin.readline
+
 
 def coin_change(coins, _sum, i):
     if _sum == 0:
@@ -13,10 +14,14 @@ def coin_change(coins, _sum, i):
         return 1e9
     _min = 1e9
     if coins[i] <= _sum:
-        _min = min(1 + coin_change(coins, _sum - coins[i], i), coin_change(coins, _sum, i + 1))
+        _min = min(
+            1 + coin_change(coins, _sum - coins[i], i),
+            coin_change(coins, _sum, i + 1)
+        )
     else:
         _min = coin_change(coins, _sum, i + 1)
     return _min
+
 
 def coin_change_iter(coins, _sum):
     n = len(coins)
@@ -30,9 +35,9 @@ def coin_change_iter(coins, _sum):
                 dp[i][j] = min(1 + dp[i][j - coins[i - 1]], dp[i - 1][j])
             else:
                 dp[i][j] = dp[i - 1][j]
-    # df = pd.DataFrame(dp, columns=[str(i) for i in range(m + 1)], index=[str(i) for i in range(n + 1)])
-    # print(df)
     return dp[n][m]
+
+
 n, _sum = list(map(int, input().split(" ")))
-coins = list(map(int , input().split()))
+coins = list(map(int, input().split()))
 print(coin_change_iter(coins, _sum))

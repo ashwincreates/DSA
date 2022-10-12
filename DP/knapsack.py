@@ -1,6 +1,5 @@
 '''
     KNAPSACK
-
     Finding Maximum Profit
 '''
 
@@ -8,6 +7,7 @@ weight = [1, 3, 4, 5]
 value = [1, 4, 5, 7]
 total_weight = 7
 m = {}
+
 
 def knapsack(weight, value, total_weight, n, m):
     if n == 0 or total_weight == 0:
@@ -22,7 +22,8 @@ def knapsack(weight, value, total_weight, n, m):
     m[total_weight] = max_profit
     return m[total_weight]
 
-def knapsack(weight, value, total_weight):
+
+def knapsack_iter(weight, value, total_weight):
     n = len(weight)
     m = total_weight
     dp = [[0 for i in range(m + 1)] for i in range(n + 1)]
@@ -34,4 +35,5 @@ def knapsack(weight, value, total_weight):
                 dp[i][j] = dp[i - 1][j]
     return dp[n][m]
 
-print(knapsack(weight, value, total_weight))
+
+print(knapsack_iter(weight, value, total_weight))
