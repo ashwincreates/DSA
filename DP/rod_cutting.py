@@ -4,14 +4,14 @@
     Unbounded Knapsack Variation
 '''
 
-def rod_cutting(length, prices, i, total):
+def rod_cutting_recursive(length, prices, i, total):
     if total <= 0 or i == len(length):
         return 0
     _max = 1e9
     if length[i] <= total:
-        _max = max(prices[i] + rod_cutting(length, prices, i, total - length[i]), rod_cutting(length, prices, i + 1, total))
+        _max = max(prices[i] + rod_cutting_recursive(length, prices, i, total - length[i]), rod_cutting_recursive(length, prices, i + 1, total))
     else:
-        _max = rod_cutting(length, prices, i + 1, total)     
+        _max = rod_cutting_recursive(length, prices, i + 1, total)     
     return _max
 
 def rod_cutting(length, prices, total):

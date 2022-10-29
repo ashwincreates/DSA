@@ -1,17 +1,19 @@
-def subsetSum(array, _sum, i, m={}):
+def subset_sum_recur(array, _sum, i, m={}):
+    '''recursive approach'''
     if _sum == 0 or i == len(array):
         return _sum == 0
     if _sum in m:
         return m[_sum]
     result = None
     if array[i] <= _sum:
-        result = subsetSum(array, _sum - array[i], i + 1, m) or subsetSum(array, _sum, i + 1, m)
+        result = subset_sum_recur(array, _sum - array[i], i + 1, m) or subset_sum_recur(array, _sum, i + 1, m)
     else:
-        result = subsetSum(array, _sum, i + 1, m)
+        result = subset_sum_recur(array, _sum, i + 1, m)
     m[_sum] = result
     return m[_sum]
 
-def subsetSum(array, _sum):
+def subsetSumDP(array, _sum):
+    '''tabulation approach'''
     n = len(array)
     m = _sum
     dp = [[False for i in range(m + 1)] for i in range(n + 1)]
@@ -27,4 +29,4 @@ def subsetSum(array, _sum):
 
 arr = [2, 3, 7, 8, 10]
 sum = 11
-print(subsetSum(arr, sum))
+print(subsetSumDP(arr, sum))

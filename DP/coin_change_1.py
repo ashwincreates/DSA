@@ -1,8 +1,8 @@
 '''
     COIN CHANGE I
 '''
-import os
-l = []
+
+
 def coin_change_recursive(coins, i, remaining):
     if remaining == 0:
         return 1
@@ -14,6 +14,7 @@ def coin_change_recursive(coins, i, remaining):
     else:
         count = coin_change_recursive(coins, i + 1, remaining)
     return count
+
 
 def coin_change(coins, _sum):
     n = len(coins)
@@ -28,6 +29,7 @@ def coin_change(coins, _sum):
             else:
                 dp[i][j] = dp[i - 1][j]
     return dp[n][m]
+
 
 coins = [1, 2, 3]
 _sum = 5

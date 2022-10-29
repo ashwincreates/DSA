@@ -1,11 +1,8 @@
-'''
-    Palindrome Partioning
-    Minimum palindromes by breaking a palindrome
-'''
+"""Palindrome partioning."""
 
 
 def is_palindrome(s):
-    '''Return is given string is palindrome or not'''
+    """Return is given string is palindrome or not."""
     left = 0
     right = len(s) - 1
     while left < right:
@@ -17,7 +14,7 @@ def is_palindrome(s):
 
 
 def palindrome(s: str, i: int, j: int, m={}):
-    '''Returns min palindrome obtainable by partioning.'''
+    """Return min palindrome obtainable by partioning."""
     if i > j:
         return 0
     if (i, j) in m:
@@ -34,5 +31,5 @@ def palindrome(s: str, i: int, j: int, m={}):
     return _min
 
 
-s = "reabaeaba"
-print(palindrome(s, 0, len(s) - 1))
+test = "reabaeaba"
+print(palindrome(test, 0, len(test) - 1))

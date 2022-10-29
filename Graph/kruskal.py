@@ -1,0 +1,3 @@
+'''
+    KRUSKAL'S ALGORITHM
+'''

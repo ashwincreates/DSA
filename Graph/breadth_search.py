@@ -21,12 +21,12 @@
 '''
 
 adjacency_list = [[1, 2], [0, 3, 4], [0, 3], [1, 2, 4], [1, 3]]
-no_of_nodes = 5
+no_nodes = 5
 
 queue = []
 level = [0] * 5
 parent = [0] * 5
-used = [False] * no_of_nodes
+used = [False] * no_nodes
 
 starting_node = 0
 print(starting_node + 1)
